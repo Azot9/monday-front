@@ -16,7 +16,18 @@ export default new Vuex.Store({
   getters: {
     getStandsId(state) {
       return state.stands.map(item => item.id);
-    }
+    },
+    getLaboratoriesId(state) {
+      return state.laboratories.map(item => item.id);
+    },
+    getStandDetails: (state) => (stand_id) => {
+      console.log("stand_id");
+      console.log(state.details.filter(item => true));
+      return state.details.filter(item => item.stand_id == stand_id);
+    },
+    getStand: (state) => (stand_id) =>  {
+      return state.stands.find(item => item.id == stand_id);
+    },
   },
   mutations: {
     setToken(state, access_token) {
@@ -33,7 +44,7 @@ export default new Vuex.Store({
     },
     setDetails(state, details) {
       console.log("asda");
-      
+
       state.details = details;
     }
   },
@@ -109,6 +120,12 @@ export default new Vuex.Store({
       await http.delete('/delete/detail', { params: { id } })
         .then((response) => {
           commit("setDetails", response.data);
+        })
+    },
+    async saveLink({ commit }, stand) {
+      await http.put(`/update/stand_link`, null, { params: stand })
+        .then((response) => {
+          commit("setStands", response.data);
         })
     },
   }

@@ -7,7 +7,6 @@ import DetailsPage from '../views/DetailsPage.vue'
 import LaboratoriesPage from '../views/LaboratoriesPage.vue'
 import OneStand from '../views/OneStand.vue'
 import OneLaboratory from '../views/OneLaboratory.vue'
-// import OneDetail from '../views/OneDetail.vue'
 
 
 Vue.use(VueRouter)

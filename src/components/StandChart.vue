@@ -32,14 +32,10 @@ export default {
     datasets: [
       {
         label: "Температура до модифікації",
-        // backgroundColor: "rgba(255, 99, 132, 0.2)",
-        // borderColor: "rgb(255, 99, 132)",
         data: [0, 20, 35, 40, 40, 40, 40]
       },
       {
         label: "Температура після модифікації",
-        // backgroundColor: "rgba(99, 255, 132, 0.2)",
-        // borderColor: "rgb(99, 255, 132)",
         data: [0, 20, 15, 14, 13, 10, 10]
       }
     ],

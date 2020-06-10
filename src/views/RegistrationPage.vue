@@ -19,6 +19,7 @@
                     type="text"
                     v-if="is_registration"
                     v-model="name"
+                    :rules="nameRules"
                   />
                   <v-text-field
                     label="Email"
@@ -26,6 +27,7 @@
                     prepend-icon="person"
                     type="email"
                     v-model="email"
+                    :rules="emailRules"
                   />
                   <v-text-field
                     id="password"
@@ -34,17 +36,16 @@
                     prepend-icon="lock"
                     type="password"
                     v-model="password"
+                    :rules="passwordRules"
                   />
                 </v-form>
               </v-card-text>
               <v-card-actions>
                 <v-spacer />
-                <!-- <router-link to="/home"> -->
                 <v-btn
                   color="primary"
                   @click="loginUser"
                 >{{!is_registration ? "Увійти" : "Зареєструватись"}}</v-btn>
-                <!-- </router-link> -->
               </v-card-actions>
             </v-card>
           </v-col>
@@ -69,7 +70,10 @@ export default {
     is_registration: false,
     email: "",
     password: "",
-    name: ""
+    name: "",
+    nameRules: [v => !!v || "Ім'я є обов'язковим"],
+    emailRules: [v => !!v || "Логін є обов'язковим"],
+    passwordRules: [v => !!v || "Пароль є обов'язковим"]
   }),
   methods: {
     toggleRegistration() {

@@ -1,3 +1,4 @@
+
 function formDataBuilder(dataObject) {
     let formData = new FormData(); 
     for (const key in dataObject) {

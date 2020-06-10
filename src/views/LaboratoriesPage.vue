@@ -65,8 +65,9 @@ export default {
       this.$store.dispatch("createLaboratory", this.new_name);
     },
     deleteLaboratory(id) {
-      console.log(id);
-      this.$store.dispatch("deleteLaboratory", id);
+      if (confirm("Ви справді хочете видалити цю лабораторію?")) {
+        this.$store.dispatch("deleteLaboratory", id);
+      }
     }
   }
 };
